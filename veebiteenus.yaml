@@ -57,6 +57,27 @@ paths:
                   raamatu_id: 
                     type: integer
   /raamatud/{bookId}:
+    get:
+      summary: Raamatu info
+      operationId: raamatuAllatombamine
+      parameters:
+        - name: bookId
+          in: path
+          required: true
+          description: leitava raamatu id
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Raamatu tagastamine õnnestus
+          content:
+            text/plain:
+              schema:
+                type: string
+        '404':
+          description: Raamatut ei leidu
+          content:
+            application/json: {}
     delete:
       summary: Raamatu kustutamine
       operationId: raamatuKustutamine
